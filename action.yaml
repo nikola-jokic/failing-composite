@@ -1,25 +1,10 @@
 name: 'Failing composite'
 description: 'Composite failing'
-inputs:
-  ruby-version:
-    description: 'Failing composite'
-    required: false
-    default: '2.6.0'
+
 runs:
   using: "composite"
   steps:
-    - name: First
-      id: foo
-      run: |
-        exit 1
-      shell: bash
-      continue-on-error: true
-    - name: Dump steps context
-      shell: bash
-      run: echo '${{ toJSON(steps) }}'
-
-    - name: erroring
-      run: |
-        exit 1
+    - name: Err
+      run: exit 1
       shell: bash
 
